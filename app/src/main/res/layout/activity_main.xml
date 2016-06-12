@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -12,20 +15,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create New Profile"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:id="@+id/createNewProfile"
         android:textColor="#8f8f8f"
         android:textSize="21dp"
         android:textStyle="bold"
-        android:padding="5dp"/>
+        android:padding="5dp"
+        android:layout_below="@+id/actionBarToolbar"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="55dp"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView"
+        android:id="@+id/fullNameText"
+        android:layout_below="@+id/createNewProfile"
         android:layout_centerHorizontal="true"
         android:background="@drawable/rounded_corners"
         android:layout_margin="8dp"
@@ -38,8 +40,8 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="55dp"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:id="@+id/emailIDText"
+        android:layout_below="@+id/fullNameText"
         android:layout_centerHorizontal="true"
         android:background="@drawable/rounded_corners"
         android:layout_margin="8dp"
@@ -53,8 +55,8 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="55dp"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/editText2"
+        android:id="@+id/passwordText"
+        android:layout_below="@+id/emailIDText"
         android:layout_centerHorizontal="true"
         android:background="@drawable/rounded_corners"
         android:layout_margin="8dp"
@@ -69,22 +71,23 @@
     <Spinner
         android:layout_width="200dp"
         android:layout_height="55dp"
-        android:id="@+id/spinner"
-        android:layout_below="@+id/editText3"
+        android:id="@+id/doctorSpinner"
+        android:layout_below="@+id/passwordText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_alignLeft="@+id/createNewProfile"
+        android:layout_alignStart="@+id/createNewProfile"
+        android:spinnerMode="dialog" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I&apos;m a"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/editText3"
+        android:id="@+id/IamA"
+        android:layout_below="@+id/passwordText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="13dp"
@@ -97,8 +100,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Create My Profile"
-        android:id="@+id/button"
-        android:layout_below="@+id/spinner"
+        android:id="@+id/createProfile"
+        android:layout_below="@+id/doctorSpinner"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:background="@drawable/button_rounded_color"
@@ -106,17 +109,47 @@
         android:textAllCaps="false"
         android:textSize="25dp"
         android:textAlignment="center"
-        android:fontFamily="@string/abc_action_bar_home_description" />
+        android:fontFamily="@string/abc_action_bar_home_description"
+        android:focusableInTouchMode="false"
+        android:onClick="createNewProfile" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already Have Account ?"
-        android:id="@+id/textView3"
+        android:id="@+id/alreadyAccount"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textColor="#8484f4"
         android:textSize="15dp"
         android:layout_marginBottom="5dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/actionBarToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:id="@+id/logoImage"
+            android:src="@drawable/profileimage"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:id="@+id/logoText"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Logo_Text"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingTop="12dp"/>
+
+    </android.support.v7.widget.Toolbar>
+
 
 </RelativeLayout>
